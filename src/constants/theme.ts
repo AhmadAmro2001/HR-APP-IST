@@ -7,6 +7,8 @@ import '@/global.css';
 
 import { Platform } from 'react-native';
 
+import { tenantBrand } from '@/config/tenant';
+
 export const Colors = {
   light: {
     text: '#000000',
@@ -63,3 +65,37 @@ export const Spacing = {
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
+
+// Shared login and form tokens keep visual decisions out of screen files.
+// Client colors come from tenantBrand so future copies change in one place.
+export const AppTheme = {
+  colors: {
+    primary: tenantBrand.colors.primary,
+    surface: '#FFFFFF',
+    pageSurround: '#F5F5F5',
+    text: '#302D2D',
+    textSecondary: '#686868',
+    muted: '#9C9C9C',
+    placeholder: '#A6A6A6',
+    cardBorder: '#DEDEDE',
+    inputBorder: '#C7E4E6',
+    errorText: '#A61B1B',
+    errorBorder: '#F0B9B9',
+    errorBackground: '#FFF2F2',
+    menuOverlay: 'rgba(0, 0, 0, 0.35)',
+    selectedMenuItem: '#E9F7F7',
+  },
+  radii: {
+    loginCard: 32,
+    input: 4,
+    button: 4,
+    homeTile: 12,
+  },
+  layout: {
+    maxPhoneWidth: 430,
+    loginHeaderHeight: 230,
+    appHeaderHeight: 49,
+    bottomNavHeight: 46,
+    drawerWidth: 260,
+  },
+} as const;
